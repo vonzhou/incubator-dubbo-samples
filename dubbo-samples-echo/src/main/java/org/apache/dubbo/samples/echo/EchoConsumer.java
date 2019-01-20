@@ -31,6 +31,7 @@ public class EchoConsumer {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring/echo-consumer.xml"});
         context.start();
         DemoService demoService = (DemoService) context.getBean("demoService"); // get remote service proxy
+        demoService.sayHello("dubbo");
 
         EchoService echoService = (EchoService) demoService;
         String status = (String)echoService.$echo("OK");
