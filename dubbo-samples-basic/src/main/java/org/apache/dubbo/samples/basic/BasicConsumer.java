@@ -28,6 +28,7 @@ public class BasicConsumer {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring/dubbo-demo-consumer.xml"});
         context.start();
+        // 会生成远程服务代理, javaassit
         DemoService demoService = (DemoService) context.getBean("demoService"); // get remote service proxy
 
         while (true) {
